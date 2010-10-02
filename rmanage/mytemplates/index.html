@@ -1,0 +1,17 @@
+{% extends "base_generic.html" %} {% block title %}main page{% endblock %} 
+{% block content %}
+<div
+	style="position: absolute; left: 50px">
+<H1>ISP: {{ isp }}</H1>
+<H1>Переключить на:</H1>
+<form action='/switch_isp/' method='POST'>{% csrf_token %} <input
+	type='hidden' name='isp' value='gcn'> <input type='submit'
+	value='GCN'></form>
+<form action='/switch_isp/' method='POST'>{% csrf_token %} <input
+	type='hidden' name='isp' value='dsl'> <input type='submit'
+	value='DSL'></form>
+<HR>
+<p>Выключить сервер</p>
+<a href='/shutdown/' onclick="return confirm('Уверен?');"><img src="/site_media/img/Button-Shutdown.png"
+	height="128" width="128"></img></a></div>
+{% endblock %}
